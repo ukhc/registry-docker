@@ -5,7 +5,7 @@ metadata:
   labels: 
     app: registry
 spec:
-  storageClassName: registry-storage
+  storageClassName: registry-storage-class
   accessModes:
     - ReadWriteOnce
   resources:
@@ -97,13 +97,13 @@ spec:
         - containerPort: 5000
           name: default
         volumeMounts:
-        - name: registry-storage
+        - name: mssql-persistent-storage
           mountPath: /var/lib/registry
         - name: config
           mountPath: /etc/docker/registry
           readOnly: true
       volumes:
-      - name: registry-storage
+      - name: mssql-persistent-storage
         persistentVolumeClaim:
           claimName: registry-pv-claim
       - name: config
