@@ -15,6 +15,16 @@
 
 ##########################
 
+echo
+echo "*** WARNING: This script will delete the deployment and persistent volumes ***"
+echo "*** WARNING: If you want to save your changes, make sure to run ./local-backup.sh before this one ***"
+echo
+read -n 1 -s -r -p "Press any key to continue or CTRL-C to exit..."
+
+echo
+
+##########################
+
 echo "ensure the correct environment is selected..."
 KUBECONTEXT=$(kubectl config view -o template --template='{{ index . "current-context" }}')
 if [ "$KUBECONTEXT" != "docker-desktop" ]; then
