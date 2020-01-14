@@ -58,4 +58,7 @@ done
 
 kubectl get pods
 
+echo "open in the browser..."
+open http://127.0.0.1:30500/v2/_catalog
+
 echo "...done"
